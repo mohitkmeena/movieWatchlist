@@ -1,48 +1,56 @@
-# Movie Watchlist REST API
+# 🎬 Movie Watchlist REST API  
 
-This project is a simple REST API for managing a movie watchlist. It allows users to perform CRUD operations on movie records stored in a MongoDB database.
+A simple REST API for managing a movie watchlist using **Go** and **MongoDB**. This API allows users to perform CRUD operations on movie records.  
 
-## Endpoints
+## 🚀 Endpoints  
 
-- **GET** `/movies`  
-  Retrieve all movies.
+### 📌 Retrieve Movies  
+- **GET** `/movies` - Fetch all movies.  
+- **GET** `/movies/{id}` - Fetch a specific movie by its ID.  
 
-- **GET** `/movies/{id}`  
-  Retrieve a specific movie by its ID.
+### 🎬 Add a Movie  
+- **POST** `/movies` - Add a new movie with the following JSON body:  
+  ```json
+  {
+    "name": "Movie Title",
+    "watched": false
+  }
+  ```  
 
-- **POST** `/movies`  
-  Add a new movie with the following JSON body:
-{
-"name": "Movie Title",
-"watched": false
-}
-- **PUT** `/movies/{id}`  
-Update the watched status of a movie by its ID. The request body should include:
+### ✅ Update Movie Status  
+- **PUT** `/movies/{id}` - Update the watched status of a movie.  
 
-- **DELETE** `/movies`  
-Delete all movies.
+### ❌ Delete Movies  
+- **DELETE** `/movies` - Delete all movies.  
+- **DELETE** `/movies/{id}` - Delete a specific movie by its ID.  
 
-- **DELETE** `/movies/{id}`  
-Delete a specific movie by its ID.
+## 🛠 Running the Application  
 
-## Running the Application
+### Prerequisites  
+Ensure you have **Go** installed and a **MongoDB** instance running.  
 
-To run this application, ensure you have Go installed along with MongoDB set up. You can clone this repository and run it using the following commands:
+### Steps to Run  
+1. Clone the repository:  
+   ```sh
+   git clone https://github.com/mohitkmeena/movieWatchlist.git
+   ```
+2. Navigate to the project directory:  
+   ```sh
+   cd movieWatchlist
+   ```
+3. Update the **MongoDB connection string** in `service.go` as per your MongoDB server URL.  
+4. Install dependencies:  
+   ```sh
+   go get github.com/gorilla/mux
+   go get go.mongodb.org/mongo-driver/mongo
+   ```
+5. Run the application:  
+   ```sh
+   go run main.go
+   ```  
 
-1. Clone the repository:
-git clone https://github.com/mohitkmeena/movieWatchlist.git
+### 🔍 Testing the API  
+- Use **Postman** or `curl` to test API endpoints.  
+- Make sure your **MongoDB server** is running before executing the above command.  
 
-2. Navigate to the project directory:
-cd movieWatchlist
-3.Make sure you changed MongoDB connectionString in service.go as per your mongodb server url .
-3. Run the application:
-go run main.go
-
-Make sure your MongoDB server is running before executing the above command. 
-
-## Additional Information
-
-- You can use tools like Postman or curl to test the API endpoints.
-- Ensure you have installed necessary dependencies using:
-go get github.com/gorilla/mux
-go get go.mongodb.org/mongo-driver/mongo
+---
